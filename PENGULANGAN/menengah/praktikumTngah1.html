@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Bilangan Ganjil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hitung Bilangan Ganjil dari batasAwal hingga batasAkhir</h1>
+    <label for="batasAwal">Masukkan Batas Awal (>0):</label>
+    <input type="number" id="batasAwal" min="1" required>
+    <br>
+    <label for="batasAkhir">Masukkan Batas Akhir (>= Batas Awal):</label>
+    <input type="number" id="batasAkhir" min="1" required>
+    <br>
+    <button onclick="countOddNumbersInRange()">Hitung Bilangan Ganjil</button>
+
+    <script>
+        function countOddNumbersInRange() {
+            const batasAwal = parseInt(document.getElementById("batasAwal").value);
+            const batasAkhir = parseInt(document.getElementById("batasAkhir").value);
+            let count = 0;
+            
+            if (batasAwal > 0 && batasAkhir >= batasAwal) {
+                for (let i = batasAwal; i <= batasAkhir; i++) {
+                    if (i % 2 !== 0) {
+                        count++;
+                    }
+                }
+                console.log("Banyaknya bilangan ganjil:", count);
+            } else {
+                console.log("BatasAwal harus lebih dari 0 dan BatasAkhir harus lebih besar atau sama dengan BatasAwal.");
+            }
+        }
+    </script>
+</body>
+</html>

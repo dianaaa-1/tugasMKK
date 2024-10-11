@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Array</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let menuArray = [
+            "Menghitung Nilai Rata-rata",
+            "Mengurutkan Angka",
+            "Mencari Angka Terbesar",
+            "Deret Fibonacci"
+        ];
+
+        let menuString = "Menu Array:\n";
+        for (let i = 0; i < menuArray.length; i++) {
+            menuString += `${i + 1}. ${menuArray[i]}\n`;
+        }
+
+        let choice = prompt(menuString + "\nPilih menu (1-4): ");
+
+        switch (choice) {
+            case "1":
+                let averageInput = prompt("Masukkan angka (pisahkan dengan koma): ");
+                let numbers = averageInput.split(',').map(Number);
+                let sum = numbers.reduce((a, b) => a + b, 0);
+                let average = sum / numbers.length;
+                alert(`Rata-rata: ${average}`);
+                break;
+            case "2":
+                let sortInput = prompt("Masukkan angka (pisahkan dengan koma): ");
+                let sortNumbers = sortInput.split(',').map(Number);
+                let sortedNumbers = sortNumbers.sort((a, b) => a - b);
+                alert(`Angka terurut: ${sortedNumbers.join(', ')}`);
+                break;
+            case "3":
+                let maxInput = prompt("Masukkan angka (pisahkan dengan koma): ");
+                let maxNumbers = maxInput.split(',').map(Number);
+                let max = Math.max(...maxNumbers);
+                alert(`Angka terbesar: ${max}`);
+                break;
+            case "4":
+                let fibonacciInput = prompt("Masukkan n: ");
+                let fibonacci = [0, 1];
+                for (let i = 2; i < fibonacciInput; i++) {
+                    fibonacci.push(fibonacci[i - 1] + fibonacci[i - 2]);
+                }
+                alert(`Deret Fibonacci: ${fibonacci.slice(0, fibonacciInput).join(', ')}`);
+                break;
+            default:
+                alert("Menu tidak tersedia");
+        }
+    </script>
+</body>
+</html>

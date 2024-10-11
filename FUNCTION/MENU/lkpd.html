@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <button onclick="menu()">Show Menu</button>
+
+    <script>
+        function menu() {
+            const choice = prompt("Pilih opsi:\n1. Luas Segitiga\n2. Keliling Lingkaran\n3. Cek Bilangan Prima");
+            switch (choice) {
+                case '1':
+                    const alas = parseFloat(prompt("Masukkan alas segitiga:"));
+                    const tinggi = parseFloat(prompt("Masukkan tinggi segitiga:"));
+                    const luas = luasSegitiga(alas, tinggi);
+                    alert(`Luas segitiga adalah: ${luas}`);
+                    break;
+                case '2':
+                    const jariJari = parseFloat(prompt("Masukkan jari-jari lingkaran:"));
+                    const keliling = kelilingLingkaran(jariJari);
+                    alert(`Keliling lingkaran adalah: ${keliling}`);
+                    break;
+                case '3':
+                    const bilangan = parseInt(prompt("Masukkan bilangan bulat:"));
+                    const isPrime = cekBilanganPrima(bilangan);
+                    alert(`${bilangan} adalah bilangan prima: ${isPrime}`);
+                    break;
+                default:
+                    alert('Pilihan tidak valid');
+            }
+        }
+
+        // Function to calculate the area of a triangle
+        function luasSegitiga(alas, tinggi) {
+            return 0.5 * alas * tinggi;
+        }
+
+        // Function to calculate the circumference of a circle
+        function kelilingLingkaran(jariJari) {
+            return 2 * Math.PI * jariJari;
+        }
+
+        // Function to check if a number is prime
+        function cekBilanganPrima(bilangan) {
+            if (bilangan <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(bilangan); i++) {
+                if (bilangan % i === 0) return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

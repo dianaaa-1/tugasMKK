@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Bilangan</title>
+</head>
+<body>
+    <script>
+        // 1. Menentukan apakah x adalah bilangan ganjil atau bukan
+        function cekGanjil() {
+            const x = parseFloat(prompt("Masukkan sebuah bilangan (x) untuk memeriksa apakah ganjil atau genap:"));
+
+            if (!isNaN(x)) { // Memeriksa apakah input adalah angka
+                const ganjil = (x % 2 !== 0) ? 'Ganjil' : 'Genap';
+                alert(`Bilangan ${x} adalah: ${ganjil}`);
+            } else {
+                alert("Input tidak valid, silakan masukkan angka.");
+            }
+        }
+
+        // 2. Menentukan apakah x adalah bilangan positif atau bukan
+        function cekPositif() {
+            const x = parseFloat(prompt("Masukkan sebuah bilangan (x) untuk memeriksa apakah positif:"));
+
+            if (!isNaN(x)) { // Memeriksa apakah input adalah angka
+                const positif = (x > 0) ? 'Positif' : 'Bukan Positif';
+                alert(`Bilangan ${x} adalah: ${positif}`);
+            } else {
+                alert("Input tidak valid, silakan masukkan angka.");
+            }
+        }
+
+        // Memanggil fungsi cekGanjil dan cekPositif
+        cekGanjil();
+        cekPositif();
+
+        // 3. Menentukan hubungan dua bilangan x dan y
+        function cekHubunganBilangan() {
+            const x = parseFloat(prompt("Masukkan bilangan pertama (x):"));
+            const y = parseFloat(prompt("Masukkan bilangan kedua (y):"));
+
+            if (!isNaN(x) && !isNaN(y)) { // Memeriksa apakah input adalah angka
+                let hubungan;
+                if (x > y) {
+                    hubungan = 'lebih besar dari';
+                } else if (x < y) {
+                    hubungan = 'lebih kecil dari';
+                } else {
+                    hubungan = 'sama dengan';
+                }
+                alert(`Bilangan ${x} adalah ${hubungan} ${y}`);
+            } else {
+                alert("Input tidak valid, silakan masukkan angka.");
+            }
+        }
+
+        // 4. Menentukan apakah a kelipatan b
+        function cekKelipatan() {
+            const a = parseInt(prompt("Masukkan bilangan a (a >= b dan a > 0):"));
+            const b = parseInt(prompt("Masukkan bilangan b (b > 0):"));
+
+            if (!isNaN(a) && !isNaN(b) && a >= b && b > 0) {
+                const kelipatan = (a % b === 0) ? `Bilangan ${a} adalah kelipatan dari ${b}` : `Bilangan ${a} bukan kelipatan dari ${b}`;
+                alert(kelipatan);
+            } else {
+                alert('Input tidak valid, pastikan a >= b dan b > 0.');
+            }
+        }
+
+        // 5. Menentukan nama hari berdasarkan no hari
+        function namaHari() {
+            const noHari = parseInt(prompt("Masukkan nomor hari (1-7):"));
+            const hari = ['SENIN', 'SELASA', 'RABU', 'KAMIS', 'JUMAT', 'SABTU', 'MINGGU'];
+
+            if (noHari >= 1 && noHari <= 7) {
+                alert(`Hari ke-${noHari} adalah: ${hari[noHari - 1]}`);
+            } else {
+                alert('Input tidak valid, masukkan nomor antara 1 dan 7.');
+            }
+        }
+
+        // Memanggil fungsi
+        cekHubunganBilangan();
+        cekKelipatan();
+        namaHari();
+    </script>
+</body>
+</html>
+                                         

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabungan Fungsi 1-6 dengan Alert</title>
+</head>
+<body>
+    <h1>Gabungan Fungsi 1-6 dengan Alert</h1>
+
+    <!-- Bagian 1: Menentukan bilangan terbesar dari dua buah bilangan -->
+    <h2>1. Bilangan Terbesar dari Dua Bilangan</h2>
+    <input type="number" id="x1" placeholder="Masukkan x">
+    <input type="number" id="y1" placeholder="Masukkan y">
+    <button onclick="bilTerbesar2()">Hitung Terbesar</button>
+
+    <!-- Bagian 2: Menentukan jenis akar persamaan kuadrat -->
+    <h2>2. Jenis Akar Persamaan Kuadrat</h2>
+    <input type="number" id="a" placeholder="Koefisien a">
+    <input type="number" id="b" placeholder="Koefisien b">
+    <input type="number" id="c" placeholder="Konstanta c">
+    <button onclick="jenisAkar()">Hitung Jenis Akar</button>
+
+    <!-- Bagian 3: Menentukan nilai indeks akhir mahasiswa -->
+    <h2>3. Nilai Akhir Mahasiswa</h2>
+    <input type="number" id="uts" placeholder="Nilai UTS">
+    <input type="number" id="uas" placeholder="Nilai UAS">
+    <input type="number" id="tugas" placeholder="Nilai Tugas">
+    <button onclick="nilaiAkhir()">Hitung Nilai Akhir</button>
+
+    <!-- Bagian 4: Menentukan bilangan terbesar dari tiga bilangan -->
+    <h2>4. Bilangan Terbesar dari Tiga Bilangan</h2>
+    <input type="number" id="x2" placeholder="Masukkan x">
+    <input type="number" id="y2" placeholder="Masukkan y">
+    <input type="number" id="z2" placeholder="Masukkan z">
+    <button onclick="bilTerbesar3()">Hitung Terbesar</button>
+
+    <!-- Bagian 5: Menentukan letak kuadran sebuah titik -->
+    <h2>5. Menentukan Letak Kuadran</h2>
+    <input type="number" id="x3" placeholder="Masukkan x">
+    <input type="number" id="y3" placeholder="Masukkan y">
+    <button onclick="cekKuadran()">Cek Kuadran</button>
+
+    <!-- Bagian 6: Menentukan hari keberapa dalam tahun berjalan -->
+    <h2>6. Menentukan Hari Ke-berapa</h2>
+    <input type="number" id="tanggal" placeholder="Masukkan tanggal">
+    <input type="number" id="bulan" placeholder="Masukkan bulan">
+    <button onclick="hitungHari()">Hitung Hari</button>
+
+    <script>
+        // Fungsi 1: Menentukan bilangan terbesar dari dua buah bilangan
+        function bilTerbesar2() {
+            let x = parseFloat(document.getElementById("x1").value);
+            let y = parseFloat(document.getElementById("y1").value);
+            let terbesar = (x > y) ? x : y;
+            alert("Bilangan terbesar adalah: " + terbesar);
+        }
+
+        // Fungsi 2: Menentukan jenis akar persamaan kuadrat
+        function jenisAkar() {
+            let a = parseFloat(document.getElementById("a").value);
+            let b = parseFloat(document.getElementById("b").value);
+            let c = parseFloat(document.getElementById("c").value);
+            let D = b * b - 4 * a * c;
+            let jenis = "";
+            if (D > 0) {
+                jenis = "Real berbeda";
+            } else if (D == 0) {
+                jenis = "Real sama";
+            } else {
+                jenis = "Imaginer";
+            }
+            alert("Jenis akar: " + jenis);
+        }
+
+        // Fungsi 3: Menentukan nilai indeks akhir mahasiswa
+        function nilaiAkhir() {
+            let uts = parseFloat(document.getElementById("uts").value);
+            let uas = parseFloat(document.getElementById("uas").value);
+            let tugas = parseFloat(document.getElementById("tugas").value);
+            let NA = (uts * 0.35) + (uas * 0.45) + (tugas * 0.2);
+            let indeks = "";
+            if (NA >= 80) {
+                indeks = "A";
+            } else if (NA >= 70) {
+                indeks = "B";
+            } else if (NA >= 50) {
+                indeks = "C";
+            } else if (NA >= 40) {
+                indeks = "D";
+            } else {
+                indeks = "E";
+            }
+            alert("Nilai Akhir: " + NA + ", Indeks: " + indeks);
+        }
+
+        // Fungsi 4: Menentukan bilangan terbesar dari tiga bilangan
+        function bilTerbesar3() {
+            let x = parseFloat(document.getElementById("x2").value);
+            let y = parseFloat(document.getElementById("y2").value);
+            let z = parseFloat(document.getElementById("z2").value);
+            let terbesar = Math.max(x, y, z);
+            alert("Bilangan terbesar adalah: " + terbesar);
+        }
+
+        // Fungsi 5: Menentukan letak kuadran
+        function cekKuadran() {
+            let x = parseFloat(document.getElementById("x3").value);
+            let y = parseFloat(document.getElementById("y3").value);
+            let kuadran = "";
+            if (x > 0 && y > 0) {
+                kuadran = "Kuadran I";
+            } else if (x < 0 && y > 0) {
+                kuadran = "Kuadran II";
+            } else if (x < 0 && y < 0) {
+                kuadran = "Kuadran III";
+            } else if (x > 0 && y < 0) {
+                kuadran = "Kuadran IV";
+            } else {
+                kuadran = "Titik berada di sumbu";
+            }
+            alert("Letak kuadran: " + kuadran);
+        }
+
+        // Fungsi 6: Menentukan hari ke-berapa dalam tahun
+        function hitungHari() {
+            let tanggal = parseInt(document.getElementById("tanggal").value);
+            let bulan = parseInt(document.getElementById("bulan").value);
+            let hariDalamBulan = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            let hariKe = tanggal;
+
+            for (let i = 0; i < bulan - 1; i++) {
+                hariKe += hariDalamBulan[i];
+            }
+
+            alert("Hari ke-" + hariKe + " dalam tahun.");
+        }
+    </script>
+</body>
+</html>
